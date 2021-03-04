@@ -74,8 +74,8 @@ public class AutomatedGrader {
 
 //Result Printing:
 System.out.println(studentName + "---" assessmentName);
-System.out.println("Multiple Choice Score": finalMCScore);
-System.out.println("Free Response Question Score": finalFRQScore);
+System.out.println("Multiple Choice Score: " finalMCScore);
+System.out.println("Free Response Question Score: " finalFRQScore);
    /*
    if(arrayMC == arrayFRQ) {
       System.out.println("Same");
