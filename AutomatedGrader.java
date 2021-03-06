@@ -8,8 +8,8 @@ import java.util.Arrays;
 public class AutomatedGrader
 {
 	// declare array objects.
-	char A[][],K[], A1[][], K1[];
-	int S[], S1[], n, mcQ, mcWeight, frqQ, frqQWeight;
+    char A[][],K[], A1[][], K1[];
+    int S[], S1[], n, mcQ, mcWeight, frqQ, frqQWeight;
     public static String assessmentName;
     public static String nameOfStudent;
     Scanner fr, sc;
@@ -22,61 +22,59 @@ public class AutomatedGrader
         assessmentName = name.nextLine();
         
         // enter number of Questions
-		Scanner mc = new Scanner(System.in);
-		System.out.print("Enter number of multiple choice questions : ");
-		mcQ = mc.nextInt();
+	Scanner mc = new Scanner(System.in);
+	System.out.print("Enter number of multiple choice questions : ");
+	mcQ = mc.nextInt();
 
         Scanner weight = new Scanner(System.in);
-		System.out.print("Enter points per multiple choice question : ");
-		mcWeight = weight.nextInt();
+	System.out.print("Enter points per multiple choice question : ");
+	mcWeight = weight.nextInt();
 
         Scanner sc = new Scanner(System.in);
 
-		// Array to store answer key
-		K = new char[mcQ]; 
+	// Array to store answer key
+	K = new char[mcQ]; 
 
         //Answer Key MC
         System.out.println("\nEnter Correct Multiple Choice Answers : ");
-		for(int i = 0; i<mcQ; i++)
-		{
-			K[i] = sc.next().charAt(0);
-		}
+	   for(int i = 0; i<mcQ; i++) {
+		K[i] = sc.next().charAt(0);
+	}
 
-		Scanner mcReenter = new Scanner(System.in);
-		System.out.println("Are these the multiple choice values you entered: " + Arrays.toString(K) + " Want to re-enter the answers (y/n)");
-		String mcEnter = mcReenter.nextLine();
-			if(mcEnter.equals("y")) {
+	Scanner mcReenter = new Scanner(System.in);
+	System.out.println("Are these the multiple choice values you entered: " + Arrays.toString(K) + " Want to re-enter the answers (y/n)");
+	String mcEnter = mcReenter.nextLine();
+		if(mcEnter.equals("y")) {
 			System.out.println("\nEnter Correct Multiple Choice Answers : ");
-				for(int i = 0; i<mcQ; i++){
-					K[i] = sc.next().charAt(0);
-				}
-			}
+			for(int i = 0; i<mcQ; i++){
+			      K[i] = sc.next().charAt(0);
+			   }
+		  }
 
         //Section for User FRQ Input
         Scanner frq = new Scanner(System.in);
-		System.out.print("Enter number of free response questions : ");
-		frqQ = frq.nextInt();
+	System.out.print("Enter number of free response questions : ");
+	frqQ = frq.nextInt();
 
         Scanner frqWeight = new Scanner(System.in);
-		System.out.print("Enter points per free response question : ");
-		frqQWeight = frqWeight.nextInt();
+	System.out.print("Enter points per free response question : ");
+	frqQWeight = frqWeight.nextInt();
 
         Scanner fr = new Scanner(System.in);
  
-		// Array to store answer key
-		K1 = new char[frqQ]; 
+	// Array to store answer key
+	K1 = new char[frqQ]; 
 
         //Answer Key MC
         System.out.println("\nEnter Correct Free Response Answers : ");
-		for(int i = 0; i<frqQ; i++)
-		{
-			K1[i] = fr.next().charAt(0);
+		for(int i = 0; i<frqQ; i++){
+		     K1[i] = fr.next().charAt(0);
 		}
 
-		Scanner frqReenter = new Scanner(System.in);
-		System.out.println("Are these the free response values you entered: " + Arrays.toString(K1) + " Want to re-enter the answers (y/n)");
-		String frqEnter = frqReenter.nextLine();
-			if(frqEnter.equals("y")) {
+	Scanner frqReenter = new Scanner(System.in);
+	System.out.println("Are these the free response values you entered: " + Arrays.toString(K1) + " Want to re-enter the answers (y/n)");
+	String frqEnter = frqReenter.nextLine();
+		if(frqEnter.equals("y")) {
 			System.out.println("\nEnter Correct Free Response Answers : ");
 				for(int i = 0; i<frqQ; i++){
 					K1[i] = sc.next().charAt(0);
@@ -94,27 +92,23 @@ public class AutomatedGrader
 
         //Student input MC
         A = new char[1][mcQ];
-		S = new int[1];
+	S = new int[1];
         Scanner sc = new Scanner(System.in); 
-        for(int i = 0; i<1; i++)
-		{
-			System.out.println("Enter Student Multiple Choice Answers: ");
-			for(int j=0; j<mcQ; j++)
-			{
-				A[i][j] = sc.next().charAt(0);
+        for(int i = 0; i<1; i++) {
+		System.out.println("Enter Student Multiple Choice Answers: ");
+		for(int j=0; j<mcQ; j++){
+			A[i][j] = sc.next().charAt(0);
 			}
 		}
 
         //Student input FRQ
-		A1 = new char[1][frqQ];
-		S1 = new int[1];
+	A1 = new char[1][frqQ];
+	S1 = new int[1];
         Scanner fr = new Scanner(System.in);
-        for(int i = 0; i<1; i++)
-		{
-			System.out.println("Enter Student Free Response Answers: ");
-			for(int j=0; j<frqQ; j++)
-			{
-				A1[i][j] = fr.next().charAt(0);
+        for(int i = 0; i<1; i++) {
+		System.out.println("Enter Student Free Response Answers: ");
+		for(int j=0; j<frqQ; j++){
+			A1[i][j] = fr.next().charAt(0);
 			}
 		}
     }
@@ -122,7 +116,7 @@ public class AutomatedGrader
     void printNames() {
         System.out.println("-----------------------------------"); 
         System.out.println("Student Name: " + AutomatedGrader.nameOfStudent + " --- " + "Assessment Name: "  + AutomatedGrader.assessmentName);
-		  System.out.println();
+	System.out.println();
     }
 
 	// Function to calculate score Students.
@@ -167,7 +161,7 @@ public class AutomatedGrader
             int frqTotal = (frqQ * mcWeight);
             double finalFRQScore = (frqCorrect * 100 / frqTotal);
             System.out.println("Free Response Score: " + finalFRQScore + "%");
-			System.out.println("Free Response Correct: " + S1[i]);
+	    System.out.println("Free Response Correct: " + S1[i]);
 		}
         System.out.println();
 	}
@@ -175,15 +169,15 @@ public class AutomatedGrader
 	{
 		AutomatedGrader ob = new AutomatedGrader();
 		ob.userInput();
-        ob.studentInput();
-        ob.printNames();
+        	ob.studentInput();
+        	ob.printNames();
 		ob.mcCalcScore();
 		ob.frqCalcScore();
-        Scanner mcSameKey = new Scanner(System.in);
-        System.out.print("Want to use the same multiple choice key to grade another quiz? (y/n): ");
-           String mcKey = mcSameKey.nextLine();
-           if(mcKey.equals("y")) {
-             ob.studentInput();
+        	Scanner mcSameKey = new Scanner(System.in);
+        	System.out.print("Want to use the same multiple choice key to grade another quiz? (y/n): ");
+           	String mcKey = mcSameKey.nextLine();
+          		 if(mcKey.equals("y")) {
+            		 ob.studentInput();
 			 ob.printNames();
 			 ob.mcCalcScore();
 			 ob.frqCalcScore();
